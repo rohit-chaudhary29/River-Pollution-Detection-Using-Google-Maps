@@ -1,10 +1,10 @@
 # River-Pollution-Detection-Using-Google-Maps
 Dependencies:
 
-Xampp server for running the project on localhost.
-You need to obtain the Google Maps javascript API key. After obtaining javascript API key, insert the key in the files specified in files_to_change.txt.
-php version >= 5.5
-MySQL version >=5.6
+Xampp server for running the project on localhost.   
+You need to obtain the Google Maps javascript API key. After obtaining javascript API key, insert the key in the files specified in files_to_change.txt.    
+php version >= 5.5    
+MySQL version >=5.6    
 
 
 Steps to run the projects:
