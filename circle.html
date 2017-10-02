@@ -1,0 +1,73 @@
+
+<html>
+<head>
+    <style type="text/css">
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { height: 100%; margin-top:20px }
+		
+		.navhead
+	{
+		font-weight:bold;
+		font-family: Georgia;
+	background:#e6ccff;
+	}
+    </style>
+	  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	  <link rel="stylesheet" href="css/world.css">
+
+
+</head>
+
+<body>
+<div class="navhead">
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="navbar-brand page-scroll"><font color="green"> RIVER POLLUTION DETECTION USING GOOGLE MAPS</font></a>
+				<ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="http://localhost/20/index.html"><font color="green">HOME</font></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="http://localhost/20/rivers.php"><font color="green">CHECK POLLUTION</font></a>
+                    </li>
+					<li>
+					<a class="page-scroll" href="http://localhost/20/circle.html"><font color="green">VISUALIZATION ON MAP</font></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="http://localhost/20/submit.html"><font color="green">SUBMIT INFO</font></a>
+                    </li>
+                    
+                </ul>
+            </div>
+			</div>
+
+<form method="post" class="panel panel-default" action="http://localhost/20/circles.php">
+<h3>Select any river name for visualization of pollution</h3>
+<h2 style="color:black;margin-left:30px;"> 
+<div class="form-group col-md-8-offset-2">
+<div class="col-md-6">
+<select name="b1" class="form-control">
+  <option value="ganga">Ganga</option>
+  <option value="yamuna">Yamuna</option>
+  <option value="brahmputra">Brahmputra</option>
+  <option value="krishna">Krishna</option>
+  <option value="mahanadi">Mahanadi</option>
+  <option value="tapti">Tapti</option>
+  <option value="godavari">Godavari</option>
+  <option value="kaveri">Kaveri</option>
+  <option value="narmada">Narmada</option>
+  <option value="ghaghra">Ghaghra</option>
+  <option value="gomti">Gomti</option>
+</select>
+</div>
+<div class="col-md-3">
+<input type="submit" class="form-control btn btn-success" onsubmit="loaddata()">
+</div>
+</div>
+<div style="clear:both"></div>
+</br>
+
+
+</form>
+</body>
+
+</html>

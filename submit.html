@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>
+Submit Information
+</title>
+<link rel="stylesheet" href="css/style1.css"/>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<style>
+	.navhead
+	{
+		font-weight:bold;
+		font-family: Georgia;
+	background:#e6ccff;
+	}
+    </style>
+
+
+<script>
+
+getLocation();
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+	     console.log("Location not Supported");
+    }
+}
+
+function showPosition(position) {
+
+var latx = document.getElementById("getlat");
+var longy = document.getElementById("getlong");
+
+
+
+
+//alert(latx);
+//alert(longy);
+
+    latx.value = position.coords.latitude;
+    longy.value = position.coords.longitude;	
+	codeLatLng(latx.value,longy.value);
+
+}
+
+var geocoder = new google.maps.Geocoder();
+
+function codeLatLng(lat, lng) {
+var cityx = document.getElementById("getcity");
+var ci;
+ci=0;
+
+var cityarray = ["Saab", "Volvo"];
+
+
+  var latlng = new google.maps.LatLng(lat, lng);
+  geocoder.geocode({latLng: latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        var arrAddress = results;
+        console.log(results);
+        $.each(arrAddress, function(i, address_component) {
+          if (address_component.types[0] == "locality") {
+            console.log("City: " + address_component.address_components[0].long_name);
+			cityarray[ci]= address_component.address_components[0].long_name;
+			ci++;
+           // itemLocality = address_component.address_components[0].long_name;
+          }
+        });
+		cityx.value = cityarray[0];
+      } else {
+        alert("No results found");
+      }
+    } else {
+      alert("Geocoder failed due to: " + status);
+    }
+  });
+}
+</script>
+
+
+
+
+
+</head>
+<div class="navhead">
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="navbar-brand page-scroll"><font color="green"> RIVER POLLUTION DETECTION USING GOOGLE MAPS</font></a>
+				<ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="http://localhost/20/index.html"><font color="green">HOME</font></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="http://localhost/20/rivers.php"><font color="green">CHECK POLLUTION</font></a>
+                    </li>
+					<li>
+					<a class="page-scroll" href="http://localhost/20/circle.html"><font color="green">VISUALIZATION ON MAP</font></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="http://localhost/20/submit.html"><font color="green">SUBMIT INFO</font></a>
+                    </li>
+                    
+                </ul>
+            </div>
+			</div>
+
+<div class="marq">
+
+<marquee><div class="col-md-3">
+          <h1 class="logo">Welcome To User Portal</h1>
+        </div></marquee></div></br>
+<mark> You can also contribute by providing correct information about the pollution status of the city.<mark>
+<div class="container">
+<div class="main">
+<form action="insert.php" method="post" id="form">
+<h2>Enter Information</h2>
+<label>Select River Name :</label>
+<select name="rname" class="form-control">
+  <option value="ganga">Ganga</option>
+  <option value="yamuna">Yamuna</option>
+  <option value="brahmputra">Brahmputra</option>
+  <option value="krishna">Krishna</option>
+  <option value="mahanadi">Mahanadi</option>
+  <option value="tapti">Tapti</option>
+  <option value="godavari">Godavari</option>
+  <option value="kaveri">Kaveri</option>
+  <option value="narmada">Narmada</option>
+  <option value="ghaghra">Ghaghra</option>
+  <option value="indus">Indus</option>
+  <option value="sutlej">Sutlej</option>
+  <option value="beas">Beas</option>
+  <option value="chambal">Chambal</option>
+  <option value="penna">Penna</option>
+  <option value="ravi">Ravi</option>
+  <option value="chenab">Chenab</option>
+  <option value="betwa">Betwa</option>
+  <option value="tungbhadra">Tungbhadra</option>
+  <option value="son">Son</option>
+  <option value="jhelum">Jhelum</option>
+  <option value="mahi">Mahi</option>
+  <option value="koshi">Koshi</option>
+  <option value="alaknanda">Alaknanda</option>
+  <option value="gandaki">Gandaki</option>
+  <option value="kali">Kali</option>
+  <option value="shipra">Shipra</option>
+  <option value="bhadra">Bhadra</option>
+  <option value="damodar">Damodar</option>
+  <option value="padma">Padma</option>
+  <option value="hooghly">Hooghly</option>
+  <option value="sabarmati">Sabarmati</option>
+  <option value="sarayu">Sarayu</option>
+  <option value="periyar">Periyar</option>
+  <option value="wardha">Wardha</option>
+</select>
+
+<label>Enter Area or City:</label>
+<input type="text" name="city" id="getcity" placeholder="City" />
+<label>Enter Latitude:</label>
+<input type="text" name="lat" id="getlat" placeholder="Latitude" />
+<label>Enter Longitude</label>
+<input type="text" name="long" id="getlong" placeholder="Longitude" />
+<label>Enter Population</label>
+<input type="text" name="pop" />
+<label>Enter Area (in km square)
+<input type="text" name="area" />
+
+<input type="submit">
+</form>
+</div>
+</div>
+</body>
+
+</html>
