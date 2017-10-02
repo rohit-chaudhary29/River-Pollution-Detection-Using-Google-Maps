@@ -9,5 +9,8 @@ MySQL version >=5.6
 
 Steps to run the projects:
 
-Clone the project. Make a folder named "20" and put the cloned project inside the "20" folder. Place the folder "20" in /xampp/htdocs.
-Run Apache and MySQL in xampp server. Then type localhost/20 in the browser. You will be redirected to the home page.
+Clone the project.    
+Make a folder named "20" and put the cloned project inside the "20" folder.    
+Place the folder "20" in /xampp/htdocs.     
+Run Apache and MySQL in xampp server.         
+Then type localhost/20 in the browser. You will be redirected to the home page.
