@@ -1,3 +1,5 @@
+Insert javascript map API key in the following files-
+
 circles.php   Line 176
 river.html    Line 10
 rivers.php    Line 105
